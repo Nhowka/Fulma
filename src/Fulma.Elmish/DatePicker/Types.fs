@@ -1,9 +1,15 @@
 namespace Fulma.Elmish.DatePicker
 
 open System
+open Fable.React
 open Fable.React.Props
 
 module Types =
+
+    type Elements =
+        { Input: ReactElement
+          DeleteButton: ReactElement option
+          Calendar: ReactElement option }
 
     type State =
         { Today : DateTime option
@@ -24,7 +30,7 @@ module Types =
           ShowDeleteButton = false  }
 
     type Config<'Msg> =
-        { OnChange : State * (DateTime option) -> 'Msg
+        { OnChange : DateTime option -> 'Msg
           Local : Date.Local.Localization
           DatePickerStyle : CSSProp list }
 
